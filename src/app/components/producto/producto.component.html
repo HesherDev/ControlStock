@@ -1,0 +1,38 @@
+<!-- src/app/components/producto/producto.component.html -->
+<div class="container mt-3">
+  <button class="btn btn-primary" (click)="openModal()">Agregar Producto</button>
+  <button class="btn btn-secondary" (click)="toggleTableVisibility()">
+    {{ showTable ? 'Ocultar Productos' : 'Mostrar Productos' }}
+  </button>
+
+  <table class="table mt-3" *ngIf="showTable">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Descripcion</th>
+        <th>Precio</th>
+        <th>Cantidad</th>
+        <th>Categoria</th>
+        <th>Codigo</th>
+        <th>Usuario ID</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let producto of productos">
+        <td>{{ producto.nombre }}</td>
+        <td>{{ producto.descripcion }}</td>
+        <td>{{ producto.precio | currency }}</td>
+        <td>{{ producto.cantidad }}</td>
+        <td>{{ producto.categoria }}</td>
+        <td>{{ producto.codigo }}</td>
+        <td>{{ producto.usuarioId }}</td>
+        <td>
+          <button class="btn btn-warning btn-sm" (click)="openModal(producto)">Editar</button>
+          <button class="btn btn-danger btn-sm" (click)="deleteProducto(producto.productoId)">Eliminar</button>
+        </td>
+      </tr>      
+    </tbody>
+  </table>
+</div>
+

@@ -1,0 +1,52 @@
+<!-- cliente.component.html -->
+<div class="container mt-3">
+  <!-- Contenedor de botones con flexbox -->
+  <div class="button-container">
+    <!-- Botones de Cliente -->
+    <button class="btn btn-primary" (click)="openModal()">Agregar Cliente</button>
+    <button class="btn btn-secondary" (click)="toggleTableVisibility()">
+      {{ showTable ? 'Ocultar Clientes' : 'Mostrar Clientes' }}
+    </button>
+    
+    <!-- Botones de Pedido (centrados) -->
+    <div class="buttons-center">
+      <button class="btn btn-primary" (click)="openModal()">Agregar Pedido</button>
+      <button class="btn btn-secondary" (click)="toggleTableVisibility()">
+        {{ showTable ? 'Ocultar Pedidos' : 'Mostrar Pedidos' }}
+      </button>
+    </div>
+    
+    <!-- Botones de Producto (a la derecha) -->
+    <div class="buttons-right">
+      <button class="btn btn-primary" (click)="openModal()">Agregar Producto</button>
+      <button class="btn btn-secondary" (click)="toggleTableVisibility()">
+        {{ showTable ? 'Ocultar Productos' : 'Mostrar Productos' }}
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="showTable" class="mt-3">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th>Teléfono</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cliente of clientes">
+          <td>{{ cliente.nombre }}</td>
+          <td>{{ cliente.email }}</td>
+          <td>{{ cliente.telefono }}</td>
+          <td>
+            <button class="btn btn-warning btn-sm" (click)="openEditModal(cliente)">Editar</button>
+            <button class="btn btn-danger btn-sm" (click)="deleteCliente(cliente.id)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

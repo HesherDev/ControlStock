@@ -1,0 +1,45 @@
+<!-- src/app/components/modals/agregar-producto/agregar-producto.component.html -->
+<h2 mat-dialog-title>{{ data ? 'Editar Producto' : 'Agregar Producto' }}</h2>
+<mat-dialog-content>
+  <form [formGroup]="productoForm">
+    <div class="mb-3">
+      <label for="nombre" class="form-label">Nombre</label>
+      <input id="nombre" type="text" class="form-control" formControlName="nombre" />
+      <mat-error *ngIf="productoForm.get('nombre')?.hasError('required')">El nombre es obligatorio.</mat-error>
+    </div>
+
+    <div class="mb-3">
+      <label for="descripcion" class="form-label">Descripción</label>
+      <input id="descripcion" type="text" class="form-control" formControlName="descripcion" />
+      <mat-error *ngIf="productoForm.get('descripcion')?.hasError('maxlength')">La descripción no puede tener más de 500 caracteres.</mat-error>
+    </div>
+
+    <div class="mb-3">
+      <label for="precio" class="form-label">Precio</label>
+      <input id="precio" type="number" class="form-control" formControlName="precio" />
+      <mat-error *ngIf="productoForm.get('precio')?.hasError('required')">El precio es obligatorio.</mat-error>
+      <mat-error *ngIf="productoForm.get('precio')?.hasError('min')">El precio debe ser mayor o igual a 0.</mat-error>
+    </div>
+
+    <div class="mb-3">
+      <label for="cantidad" class="form-label">Cantidad</label>
+      <input id="cantidad" type="number" class="form-control" formControlName="cantidad" />
+      <mat-error *ngIf="productoForm.get('cantidad')?.hasError('required')">La cantidad es obligatoria.</mat-error>
+    </div>
+
+    <div class="mb-3">
+      <label for="categoria" class="form-label">Categoría</label>
+      <input id="categoria" type="text" class="form-control" formControlName="categoria" />
+    </div>
+
+    <div class="mb-3">
+      <label for="codigo" class="form-label">Código</label>
+      <input id="codigo" type="text" class="form-control" formControlName="codigo" />
+    </div>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button (click)="dialogRef.close()">Cancelar</button>
+  <button mat-button color="primary" (click)="onSave()">Guardar</button>
+</mat-dialog-actions>

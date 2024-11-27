@@ -1,0 +1,29 @@
+/*  components/cliente/cliente.component.css */
+
+.btn-danger:disabled {
+  background-color: #d9534f; /* Color rojo clásico para los botones de eliminar */
+  border-color: #d9534f;
+  cursor: not-allowed;
+}
+/* Estilo para el contenedor de los botones */
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* Estilo para los botones de Pedido, centrados */
+.buttons-center {
+  display: flex;
+  gap: 10px;  /* Espacio entre botones */
+  justify-content: center;
+  flex-grow: 1;  /* Hace que estos botones ocupen el espacio disponible en el centro */
+}
+
+/* Estilo para los botones de Producto, alineados a la derecha */
+.buttons-right {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}

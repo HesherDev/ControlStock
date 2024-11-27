@@ -1,0 +1,30 @@
+<!-- src/app/components/modals/agregar-pedido/agregar-pedido.component.html -->
+<h2 mat-dialog-title>{{ data ? 'Editar Pedido' : 'Agregar Pedido' }}</h2>
+<mat-dialog-content>
+  <form [formGroup]="pedidoForm">
+    <div class="mb-3">
+      <label for="clienteId" class="form-label">ID del Cliente</label>
+      <input id="clienteId" type="number" class="form-control" formControlName="clienteId" />
+      <mat-error *ngIf="pedidoForm.get('clienteId')?.hasError('required')">El ID del cliente es requerido.</mat-error>
+    </div>
+      
+    <div class="mb-3">
+      <label for="fechaPedido" class="form-label">Fecha</label>
+      <input id="fechaPedido" type="date" class="form-control" formControlName="fechaPedido" />
+      <mat-error *ngIf="pedidoForm.get('fechaPedido')?.hasError('required')">La fecha es requerida.</mat-error>
+    </div>
+
+    <div class="mb-3">
+      <label for="total" class="form-label">Total</label>
+      <input id="total" type="number" class="form-control" formControlName="total" />
+      <mat-error *ngIf="pedidoForm.get('total')?.hasError('required')">El total es requerido.</mat-error>
+      <mat-error *ngIf="pedidoForm.get('total')?.hasError('min')">El total debe ser mayor o igual a 0.</mat-error>
+    </div>
+
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button (click)="dialogRef.close()">Cancelar</button>
+  <button mat-button (click)="onSave()">Guardar</button>
+</mat-dialog-actions>
