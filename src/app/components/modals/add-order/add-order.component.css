@@ -1,0 +1,83 @@
+/* src/app/components/client/your-dialog.component.css */
+
+/* Estilo del contenedor principal del diálogo */
+.dialog-container {
+    background: #000000; /* Fondo negro */
+    color: #00ff00; /* Texto verde neón */
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 2px;
+  }
+  
+  /* Estilo del formulario en el diálogo */
+  .dialog-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  /* Estilo para cada grupo de formulario */
+  .dialog-form .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .dialog-form label {
+    font-size: 14px;
+    color: #00ff00; /* Color verde para las etiquetas */
+  }
+  
+  .dialog-form input {
+    padding: 10px;
+    border: 2px solid #00ff00;
+    background: transparent; /* Fondo transparente en los inputs */
+    color: #00ff00;
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .dialog-form input:focus {
+    outline: none;
+    background-color: #24243e;
+    color: #00ff00;
+  }
+  
+  /* Estilo para el título del diálogo (Add Client o Edit Client) */
+  mat-dialog-title {
+    background-color: #000000; /* Fondo negro */
+    color: #00ff00; /* Texto verde neón */
+    padding: 10px 20px;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center; /* Alineación central del texto */
+  }
+  
+  /* Estilo de los botones (Cancel/Save) */
+  mat-dialog-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    background-color: #000000; /* Fondo negro para la zona de botones */
+  }
+  
+  /* Botones de acción */
+  button.dialog-btn {
+    background: #000000; /* Fondo negro */
+    color: #00ff00;
+    border: 2px solid #00ff00;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-family: 'Courier New', Courier, monospace;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  button.dialog-btn:hover {
+    background-color: #00ff00;
+    color: #000;
+  }
+  

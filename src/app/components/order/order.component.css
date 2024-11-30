@@ -1,0 +1,102 @@
+/* order.component.css */
+/* Contenedor principal */
+.order-container {
+  padding: 20px;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 12px;
+  font-family: 'Courier New', Courier, monospace;
+  color: #00ff00;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animación de gradiente en el contenedor principal */
+.order-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  background-size: 200% 200%;
+  z-index: -1;
+  animation: gradientShift 10s ease infinite;
+}
+
+/* Tabla */
+table {
+  width: 100%;
+  background: transparent;
+  border-collapse: collapse; /* Mantener las celdas juntas */
+  margin-bottom: 20px;
+  color: #00ff00; /* Color verde flúor para los datos */
+  border: none; /* Eliminar bordes de la tabla */
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border: none; /* Eliminar bordes de las celdas */
+  color: #00ff00; /* Color verde flúor para las celdas */
+}
+
+th {
+  background-color: #f4f4f4;
+}
+
+/* Botones principales */
+.main-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+button {
+  font-family: 'Courier New', Courier, monospace;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Botones principales estilo futurista */
+button[mat-raised-button][color="primary"],
+button[mat-raised-button][color="accent"] {
+  background: linear-gradient(90deg, #00ff00, #00bcd4);
+  color: #000; /* Texto negro */
+  box-shadow: 0 4px 15px rgba(0, 255, 0, 0.5);
+}
+
+button[mat-raised-button][color="primary"]:hover,
+button[mat-raised-button][color="accent"]:hover {
+  background: linear-gradient(90deg, #00bcd4, #00ff00);
+  transform: translateY(-3px); /* Levanta el botón al hover */
+}
+
+/* Botones de acción (Editar/Eliminar) */
+button.action-btn {
+  background: transparent;
+  color: #00ff00;
+  border: 2px solid #00ff00;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin-right: 10px; /* Separar los botones */
+}
+
+button.action-btn:hover {
+  background-color: #00ff00;
+  color: #000;
+}
+
+/* Centrar los botones en la celda */
+td.action-buttons {
+  text-align: center; /* Centra los botones */
+  padding: 10px;
+}

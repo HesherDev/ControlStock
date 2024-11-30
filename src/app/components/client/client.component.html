@@ -1,0 +1,65 @@
+<!-- cliente.component.html -->
+<!-- cliente.component.html -->
+<div class="client-container">
+  <!-- Botones para agregar cliente y alternar la visibilidad de la tabla -->
+  <div class="main-buttons">
+    <button mat-raised-button color="primary" (click)="openModal()">Add Client</button>
+    <button mat-raised-button color="accent" (click)="toggleTableVisibility()">
+      {{ showTable ? 'Hide Clients' : 'Show Clients' }}
+    </button>
+    <!-- Añadir un botón para navegar a la ruta de Orders -->
+    <button mat-raised-button color="accent" [routerLink]="'/orders'">Go to Orders</button>
+
+  </div>
+
+  <!-- Indicador de carga -->
+  <div *ngIf="loading" class="loading-spinner">
+    <span>Loading...</span>
+  </div>
+
+  <!-- Tabla de clientes -->
+  <table mat-table *ngIf="showTable && !loading" [dataSource]="clients" class="mat-elevation-z8">
+    <!-- Columnas -->
+    <ng-container matColumnDef="ClientId">
+      <th mat-header-cell *matHeaderCellDef>Client ID</th>
+      <td mat-cell *matCellDef="let client">{{ client.ClientId || 'No ID' }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let client">{{ client.Name || 'No Name' }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Email">
+      <th mat-header-cell *matHeaderCellDef>Email</th>
+      <td mat-cell *matCellDef="let client">{{ client.Email || 'No Email' }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Phone">
+      <th mat-header-cell *matHeaderCellDef>Phone</th>
+      <td mat-cell *matCellDef="let client">{{ client.Phone || 'No Phone' }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Address">
+      <th mat-header-cell *matHeaderCellDef>Address</th>
+      <td mat-cell *matCellDef="let client">{{ client.Address || 'No Address' }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <td mat-cell *matCellDef="let client" class="action-buttons">
+        <button mat-raised-button color="primary" class="action-btn" (click)="openEditModal(client)">Edit</button>
+        <button mat-raised-button color="accent" class="action-btn" (click)="deleteClient(client.ClientId)">Delete</button>
+      </td>
+    </ng-container>
+
+    <!-- Cabecera y filas -->
+    <tr mat-header-row *matHeaderRowDef="['ClientId', 'Name', 'Email', 'Phone', 'Address', 'actions']"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['ClientId', 'Name', 'Email', 'Phone', 'Address', 'actions']"></tr>
+
+    <!-- Mensaje para tabla vacía -->
+    <tr *ngIf="clients.length === 0">
+      <td mat-cell colspan="6" class="text-center">No clients found.</td>
+    </tr>
+  </table>
+</div>

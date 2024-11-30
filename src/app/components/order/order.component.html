@@ -1,0 +1,58 @@
+<!-- order.component.html -->
+<div class="order-container">
+  <!-- Botones para agregar orden y alternar la visibilidad de la tabla -->
+  <div class="main-buttons">
+    <button mat-raised-button color="primary" (click)="openModal()">Add Order</button>
+    <button mat-raised-button color="accent" (click)="toggleTableVisibility()">
+      {{ showTable ? 'Hide Orders' : 'Show Orders' }}
+    </button>
+    <!-- Añadir un botón para navegar a la ruta de Clientes -->
+    <button mat-raised-button color="accent" [routerLink]="'/clients'">Go to Clients</button>
+  </div>
+
+  <!-- Indicador de carga -->
+  <div *ngIf="loading" class="loading-spinner">
+    <span>Loading...</span>
+  </div>
+
+  <!-- Tabla de órdenes -->
+  <table mat-table *ngIf="showTable && !loading" [dataSource]="orders" class="mat-elevation-z8">
+    <!-- Columnas -->
+    <ng-container matColumnDef="OrderId">
+      <th mat-header-cell *matHeaderCellDef>Order ID</th>
+      <td mat-cell *matCellDef="let order">{{ order.OrderId }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="ClientId">
+      <th mat-header-cell *matHeaderCellDef>Client ID</th>
+      <td mat-cell *matCellDef="let order">{{ order.ClientId }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="OrderDate">
+      <th mat-header-cell *matHeaderCellDef>Order Date</th>
+      <td mat-cell *matCellDef="let order">{{ order.OrderDate | date }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Total">
+      <th mat-header-cell *matHeaderCellDef>Total</th>
+      <td mat-cell *matCellDef="let order">{{ order.Total | currency }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <td mat-cell *matCellDef="let order" class="action-buttons">
+        <button mat-raised-button color="primary" class="action-btn" (click)="openEditModal(order)">Edit</button>
+        <button mat-raised-button color="accent" class="action-btn" (click)="deleteOrder(order.OrderId)">Delete</button>
+      </td>
+    </ng-container>
+
+    <!-- Cabecera y filas -->
+    <tr mat-header-row *matHeaderRowDef="['OrderId', 'ClientId', 'OrderDate', 'Total', 'actions']"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['OrderId', 'ClientId', 'OrderDate', 'Total', 'actions']"></tr>
+
+    <!-- Mensaje para tabla vacía -->
+    <tr *ngIf="orders.length === 0">
+      <td mat-cell colspan="5" class="text-center">No orders found.</td>
+    </tr>
+  </table>
+</div>

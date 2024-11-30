@@ -1,0 +1,27 @@
+<!-- add-order.component.html -->
+<form [formGroup]="orderForm" (ngSubmit)="onSave()">
+  <div class="dialog-container">
+    <h2 mat-dialog-title>{{ data ? 'Edit Order' : 'Add Order' }}</h2>
+    <mat-dialog-content>
+      <form [formGroup]="orderForm" class="dialog-form">
+        <div class="form-group">
+          <label for="clientId">Client ID</label>
+          <input matInput id="clientId" type="number" formControlName="ClientId" />
+        </div>
+        <div class="form-group">
+          <label for="orderDate">Order Date</label>
+          <input matInput id="orderDate" type="date" formControlName="OrderDate" />
+        </div>
+        <div class="form-group">
+          <label for="total">Total</label>
+          <input matInput id="total" type="number" formControlName="Total" />
+        </div>
+      </form>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+      <button mat-button class="dialog-btn" (click)="dialogRef.close()">Cancel</button>
+      <button mat-button class="dialog-btn" type="submit">Save</button>
+    </mat-dialog-actions>
+  </div>
+  
+</form>

@@ -1,26 +1,28 @@
 <!-- your-dialog.component.html -->
-<h2 mat-dialog-title>{{ data ? 'Editar Cliente' : 'Agregar Cliente' }}</h2>
-<mat-dialog-content>
-  <form [formGroup]="clienteForm">
-    <div class="mb-3">
-      <label for="nombre" class="form-label">Nombre</label>
-      <input id="nombre" type="text" class="form-control" formControlName="nombre" />
-    </div>
-    <div class="mb-3">
-      <label for="email" class="form-label">Email</label>
-      <input id="email" type="email" class="form-control" formControlName="email" />
-    </div>
-    <div class="mb-3">
-      <label for="telefono" class="form-label">Teléfono</label>
-      <input id="telefono" type="text" class="form-control" formControlName="telefono" />
-    </div>
-    <div class="mb-3">
-      <label for="direccion" class="form-label">Dirección</label>
-      <input id="direccion" type="text" class="form-control" formControlName="direccion" />
-    </div>
-  </form>
-</mat-dialog-content>
-<mat-dialog-actions>
-  <button mat-button (click)="dialogRef.close()">Cancelar</button>
-  <button mat-button (click)="onSave()">Guardar</button>
-</mat-dialog-actions>
+<div class="dialog-container">
+  <h2 mat-dialog-title>{{ data ? 'Edit Client' : 'Add Client' }}</h2>
+  <mat-dialog-content>
+    <form [formGroup]="clientForm" class="dialog-form">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input matInput id="name" type="text" formControlName="Name" />
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input matInput id="email" type="email" formControlName="Email" />
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input matInput id="phone" type="text" formControlName="Phone" />
+      </div>
+      <div class="form-group">
+        <label for="address">Address</label>
+        <input matInput id="address" type="text" formControlName="Address" />
+      </div>
+    </form>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button class="dialog-btn" (click)="dialogRef.close()">Cancel</button>
+    <button mat-button class="dialog-btn" (click)="onSave()">Save</button>
+  </mat-dialog-actions>
+</div>
