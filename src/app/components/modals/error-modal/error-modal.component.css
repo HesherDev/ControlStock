@@ -1,0 +1,40 @@
+/* Global styles for dialog */
+/* Contenedor principal: Fondo negro completo */
+.dialog-container {
+    background-color: black; /* Fondo negro */
+    padding: 20px; /* Espaciado interno */
+    border-radius: 0px; /* Opcional: bordes redondeados para el modal */
+    text-align: center; /* Centrado del contenido */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra horizontalmente todos los hijos */
+    justify-content: center; /* Centra verticalmente todos los hijos */
+    min-width: 300px; /* Ancho mínimo del modal */
+  }
+  
+  /* Texto del contenido */
+  .dialog-content p {
+    color: #00FF00; /* Texto verde neón */
+    font-family: 'Courier New', Courier, monospace; /* Tipografía estilo Matrix */
+    margin: 0 0 20px; /* Margen inferior para separar texto del botón */
+  }
+  
+  /* Estilo del botón */
+  .dialog-btn {
+    background-color: transparent; /* Botón transparente */
+    border: 2px solid #00FF00; /* Borde verde neón */
+    color: #00FF00; /* Texto verde neón */
+    font-family: 'Courier New', Courier, monospace; /* Tipografía estilo Matrix */
+    padding: 10px 20px; /* Tamaño del botón */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s; /* Efecto suave */
+    cursor: pointer;
+  }
+  
+  /* Hover: Fondo verde neón y texto negro */
+  .dialog-btn:hover {
+    background-color: #00FF00; /* Fondo verde neón */
+    color: black; /* Texto negro */
+    box-shadow: 0 0 10px #00FF00, 0 0 40px #00FF00; /* Efecto de brillo */
+  }
+  

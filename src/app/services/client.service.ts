@@ -22,7 +22,7 @@ export class ClientService {
       })
     );
   }
-  
+
   // Agregar un cliente
   addClient(client: Client): Observable<Client> {
     return this.http.post<Client>(this.apiUrl, client).pipe(

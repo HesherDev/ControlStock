@@ -1,110 +1,17 @@
 /* components/cliente/cliente.component.css */
-/* Estilo general de la página */
+/* Contenedor principal */
 .client-container {
   padding: 20px;
-  background: transparent; /* Fondo transparente */
-  box-shadow: none; /* Eliminar sombra */
-  border-radius: 12px; /* Bordes suaves */
-  font-family: 'Courier New', Courier, monospace;
-  color: #00ff00; /* Texto verde neón */
-  position: relative;
-  overflow: hidden; /* Para que los efectos no sobresalgan */
-}
-
-/* Eliminar el fondo animado detrás del contenedor */
-.client-container::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: none; /* Eliminar el fondo animado */
-  z-index: -1;
-  animation: none; /* Eliminar la animación de gradiente */
-}
-
-/* Fondo animado solo en el contenedor principal, no en las celdas de la tabla */
-.client-container::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: none; /* Eliminar el fondo animado */
-  z-index: -1;
-  animation: none; /* Eliminar la animación de gradiente */
-}
-
-/* Mantener el fondo transparente en la tabla */
-table {
-  background: transparent; /* Eliminar fondo en la tabla */
-}
-
-
-/* Botones principales */
-.main-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-bottom: 20px;
-}
-
-button {
-  font-family: 'Courier New', Courier, monospace;
-  text-transform: uppercase;
-  font-weight: 600;
-  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
-  padding: 12px 24px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-/* Botones principales estilo futurista */
-button[mat-raised-button][color="primary"],
-button[mat-raised-button][color="accent"] {
-  background: linear-gradient(90deg, #00ff00, #00bcd4);
-  color: #000; /* Texto negro */
-  box-shadow: 0 4px 15px rgba(0, 255, 0, 0.5);
-}
-
-button[mat-raised-button][color="primary"]:hover,
-button[mat-raised-button][color="accent"]:hover {
-  background: linear-gradient(90deg, #00bcd4, #00ff00);
-  transform: translateY(-3px); /* Levanta el botón al hover */
-}
-
-/* Botones de acción (Editar/Eliminar) */
-button.action-btn {
   background: transparent;
+  box-shadow: none;
+  border-radius: 12px;
+  font-family: 'Courier New', Courier, monospace;
   color: #00ff00;
-  border: 2px solid #00ff00;
-  padding: 10px 20px;
-  border-radius: 8px;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  margin-right: 10px; /* Separar los botones */
+  position: relative;
+  overflow: hidden;
 }
 
-button.action-btn:hover {
-  background-color: #00ff00;
-  color: #000;
-}
-
-/* Centrar los botones en la celda */
-td.action-buttons {
-  text-align: center; /* Centra los botones */
-  padding: 10px;
-}
-
-/* Eliminar el fondo de la celda de la tabla para que prevalezca el estilo principal */
-td {
-  background: transparent; /* Eliminar fondo en celdas */
-  color: #00ff00;
-}
-
-/* Fondo animado solo en el contenedor principal, no en las celdas de la tabla */
+/* Fondo animado */
 .client-container::before {
   content: '';
   position: absolute;
@@ -116,37 +23,126 @@ td {
   background-size: 200% 200%;
   z-index: -1;
   animation: gradientShift 10s ease infinite;
-  /* Este efecto solo debe aplicarse al contenedor principal */
 }
 
-/* Mantener el fondo transparente en la tabla */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Contenedor para botones principales y buscador */
+.main-buttons-search {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  height: 60px; /* Altura uniforme para los elementos */
+}
+
+/* Botones principales */
+.main-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+button {
+  font-family: 'Courier New', Courier, monospace;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.8em;
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+button[mat-raised-button][color="primary"],
+button[mat-raised-button][color="accent"] {
+  background: linear-gradient(90deg, #00ff00, #00bcd4);
+  color: #000;
+  box-shadow: 0 4px 15px rgba(0, 255, 0, 0.5);
+}
+
+button[mat-raised-button]:hover {
+  background: linear-gradient(90deg, #00bcd4, #00ff00);
+  transform: translateY(-3px);
+}
+
+/* Buscador */
+.search-container {
+  display: flex;
+  gap: 12px;
+  height: 56px;
+}
+
+mat-form-field {
+  height: 100%;
+  flex: 1;
+  position: relative;  /* Permite mover el contenido dentro */
+}
+
+mat-form-field .mat-mdc-form-field-flex {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  position: relative; /* Permite mover el input dentro */
+}
+
+input {
+  position: relative;
+  top: -20px; /* Ajuste más pequeño para mover el input hacia arriba o abajo */
+  font-size: 0.9em;
+  padding: 0 8px;
+  box-sizing: border-box;
+  background: transparent; /* Fondo transparente */
+  border-top: 20px solid #00ff00; /* Borde superior de 20px */
+  border-bottom: 20px solid #00ff00; /* Borde inferior de 20px */
+  color: #00ff00; /* Texto verde */
+}
+
+/* Tabla */
 table {
-  background: transparent; /* Eliminar fondo en la tabla */
+  background: transparent;
 }
 
-/* Animación de gradiente */
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+td,
+th {
+  color: #00ff00;
 }
 
+td.action-buttons {
+  text-align: center;
+  padding: 10px;
+}
 
-/* Animación de gradiente */
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
+/* Separar botones Edit y Delete */
+td.action-buttons button {
+  margin-right: 10px; /* Separar botones */
+}
+
+/* Contenedor del indicador de carga */
+.loading-container {
+  text-align: center; /* Centrar el texto */
+  margin: 20px 0; /* Espaciado vertical */
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #00ff00; /* Verde brillante */
+  animation: fadeIn 1s ease-in-out; /* Animación para suavizar la aparición */
+}
+
+/* Animación de aparición */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
+  to {
+    opacity: 1;
   }
 }

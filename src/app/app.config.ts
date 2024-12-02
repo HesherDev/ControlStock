@@ -9,10 +9,14 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CommonModule } from '@angular/common';  // Asegúrate de importar CommonModule
+import { CommonModule } from '@angular/common';
 import { provideHttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { routes } from './app.routes';
 import { LoggingInterceptor } from './interceptors/logging.interceptor';
+
+// Importa el componente si necesitas usarlo standalone en otro lugar,
+// pero no es necesario registrarlo aquí si lo usas solo con MatDialog.
+import { ConfirmDeleteComponent } from './components/modals/confirm-delete/confirm-delete.component';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -26,10 +30,10 @@ export const appConfig: ApplicationConfig = {
     importProvidersFrom(
       BrowserModule,
       BrowserAnimationsModule,
-      ReactiveFormsModule,    // Necesario para los formularios reactivos
+      ReactiveFormsModule,
       FormsModule,
-      CommonModule,           // Añadido para soporte de *ngIf
-      MatDialogModule,
+      CommonModule,
+      MatDialogModule,        
       MatInputModule,
       MatFormFieldModule,
       MatButtonModule

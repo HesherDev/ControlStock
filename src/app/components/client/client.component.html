@@ -1,24 +1,38 @@
 <!-- cliente.component.html -->
-<!-- cliente.component.html -->
 <div class="client-container">
-  <!-- Botones para agregar cliente y alternar la visibilidad de la tabla -->
-  <div class="main-buttons">
-    <button mat-raised-button color="primary" (click)="openModal()">Add Client</button>
-    <button mat-raised-button color="accent" (click)="toggleTableVisibility()">
-      {{ showTable ? 'Hide Clients' : 'Show Clients' }}
-    </button>
-    <!-- Añadir un botón para navegar a la ruta de Orders -->
-    <button mat-raised-button color="accent" [routerLink]="'/orders'">Go to Orders</button>
+  <!-- Contenedor para los botones principales y el buscador -->
+  <div class="main-buttons-search">
+    <!-- Botones principales -->
+    <div class="main-buttons">
+      <button mat-raised-button color="primary" (click)="openModal(null)">Add Client</button>
+      <button mat-raised-button color="accent" (click)="toggleTableVisibility()">
+        {{ showTable ? 'Hide Clients' : 'Show Clients' }}
+      </button>
+      <button mat-raised-button color="accent" [routerLink]="'/orders'">Go to Orders</button>
+    </div>
 
+    <!-- Buscador -->
+    <div class="search-container">
+      <mat-form-field appearance="fill">
+        <mat-label></mat-label>
+        <input matInput [(ngModel)]="searchQuery" placeholder="Search" />
+      </mat-form-field>
+      <button mat-raised-button color="accent" (click)="searchClient()">Search Client</button>
+    </div>
   </div>
 
-  <!-- Indicador de carga -->
-  <div *ngIf="loading" class="loading-spinner">
+  <!-- Contenedor para el indicador de carga -->
+  <div class="loading-container" *ngIf="loading">
     <span>Loading...</span>
   </div>
 
   <!-- Tabla de clientes -->
-  <table mat-table *ngIf="showTable && !loading" [dataSource]="clients" class="mat-elevation-z8">
+  <table
+    mat-table
+    *ngIf="showTable && filteredClients.length > 0 && !loading"
+    [dataSource]="filteredClients"
+    class="mat-elevation-z8"
+  >
     <!-- Columnas -->
     <ng-container matColumnDef="ClientId">
       <th mat-header-cell *matHeaderCellDef>Client ID</th>
@@ -48,18 +62,22 @@
     <ng-container matColumnDef="actions">
       <th mat-header-cell *matHeaderCellDef>Actions</th>
       <td mat-cell *matCellDef="let client" class="action-buttons">
-        <button mat-raised-button color="primary" class="action-btn" (click)="openEditModal(client)">Edit</button>
-        <button mat-raised-button color="accent" class="action-btn" (click)="deleteClient(client.ClientId)">Delete</button>
+        <button mat-raised-button color="primary" class="action-btn" (click)="openEditModal(client)">
+          Edit
+        </button>
+        <button mat-raised-button color="primary" class="action-btn" (click)="deleteClient(client.ClientId)">
+          Delete
+        </button>
       </td>
     </ng-container>
 
     <!-- Cabecera y filas -->
     <tr mat-header-row *matHeaderRowDef="['ClientId', 'Name', 'Email', 'Phone', 'Address', 'actions']"></tr>
     <tr mat-row *matRowDef="let row; columns: ['ClientId', 'Name', 'Email', 'Phone', 'Address', 'actions']"></tr>
-
-    <!-- Mensaje para tabla vacía -->
-    <tr *ngIf="clients.length === 0">
-      <td mat-cell colspan="6" class="text-center">No clients found.</td>
-    </tr>
   </table>
+
+  <!-- Mensaje para tabla vacía -->
+  <div *ngIf="showTable && !filteredClients.length && !loading" class="no-data">
+    <p>No clients available. Please add new clients.</p>
+  </div>
 </div>

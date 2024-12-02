@@ -11,7 +11,7 @@
   overflow: hidden;
 }
 
-/* Animación de gradiente en el contenedor principal */
+/* Fondo animado */
 .order-container::before {
   content: '';
   position: absolute;
@@ -25,78 +25,131 @@
   animation: gradientShift 10s ease infinite;
 }
 
-/* Tabla */
-table {
-  width: 100%;
-  background: transparent;
-  border-collapse: collapse; /* Mantener las celdas juntas */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Contenedor para botones principales y buscador */
+.main-buttons-search {
+  display: flex;
+  justify-content: space-between;
   margin-bottom: 20px;
-  color: #00ff00; /* Color verde flúor para los datos */
-  border: none; /* Eliminar bordes de la tabla */
-}
-
-th, td {
-  padding: 8px;
-  text-align: left;
-  border: none; /* Eliminar bordes de las celdas */
-  color: #00ff00; /* Color verde flúor para las celdas */
-}
-
-th {
-  background-color: #f4f4f4;
+  height: 60px; /* Altura uniforme para los elementos */
 }
 
 /* Botones principales */
 .main-buttons {
   display: flex;
-  justify-content: center;
   gap: 20px;
-  margin-bottom: 20px;
 }
 
 button {
   font-family: 'Courier New', Courier, monospace;
   text-transform: uppercase;
   font-weight: 600;
-  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
   padding: 12px 24px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  font-size: 0.8em;
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Botones principales estilo futurista */
 button[mat-raised-button][color="primary"],
 button[mat-raised-button][color="accent"] {
   background: linear-gradient(90deg, #00ff00, #00bcd4);
-  color: #000; /* Texto negro */
+  color: #000;
   box-shadow: 0 4px 15px rgba(0, 255, 0, 0.5);
 }
 
-button[mat-raised-button][color="primary"]:hover,
-button[mat-raised-button][color="accent"]:hover {
+button[mat-raised-button]:hover {
   background: linear-gradient(90deg, #00bcd4, #00ff00);
-  transform: translateY(-3px); /* Levanta el botón al hover */
+  transform: translateY(-3px);
 }
 
-/* Botones de acción (Editar/Eliminar) */
-button.action-btn {
+/* Buscador */
+.search-container {
+  display: flex;
+  gap: 12px;
+  height: 56px;
+}
+
+mat-form-field {
+  height: 100%;
+  flex: 1;
+  position: relative;  /* Permite mover el contenido dentro */
+}
+
+mat-form-field .mat-mdc-form-field-flex {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  position: relative; /* Permite mover el input dentro */
+}
+
+input {
+  position: relative;
+  top: -20px; /* Ajuste más pequeño para mover el input hacia arriba o abajo */
+  font-size: 0.9em;
+  padding: 0 8px;
+  box-sizing: border-box;
+  background: transparent; /* Fondo transparente */
+  border-top: 20px solid #00ff00; /* Borde superior de 20px */
+  border-bottom: 20px solid #00ff00; /* Borde inferior de 20px */
+  color: #00ff00; /* Texto verde */
+}
+
+/* Tabla */
+table {
   background: transparent;
+}
+
+td,
+th {
   color: #00ff00;
-  border: 2px solid #00ff00;
-  padding: 10px 20px;
-  border-radius: 8px;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  margin-right: 10px; /* Separar los botones */
 }
 
-button.action-btn:hover {
-  background-color: #00ff00;
-  color: #000;
-}
-
-/* Centrar los botones en la celda */
 td.action-buttons {
-  text-align: center; /* Centra los botones */
+  text-align: center;
   padding: 10px;
+}
+
+/* Separar botones Edit y Delete */
+td.action-buttons button {
+  margin-right: 10px; /* Separar botones */
+}
+
+
+.error-message {
+  margin-top: 10px;
+  color: red;
+  font-weight: bold;
+  font-family: 'Courier New', Courier, monospace;
+}
+/* Contenedor del indicador de carga */
+.loading-container {
+  text-align: center; /* Centrar el texto */
+  margin: 20px 0; /* Espaciado vertical */
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #00ff00; /* Verde brillante */
+  animation: fadeIn 1s ease-in-out; /* Animación para suavizar la aparición */
+}
+
+/* Animación de aparición */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

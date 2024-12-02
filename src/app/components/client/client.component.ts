@@ -1,31 +1,40 @@
 // client.component.ts
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ClientService } from '../../services/client.service';
 import { Client } from '../../models/client';
 import { CommonModule } from '@angular/common';
-import { MatTableModule } from '@angular/material/table';  // Asegúrate de importar esto
-import { MatButtonModule } from '@angular/material/button';  // Importar si es necesario
-import { RouterModule } from '@angular/router';  // Agregar importación de RouterModule
+import { MatTableModule } from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { YourDialogComponent } from '../modals/your-dialog.component';
-import { ChangeDetectorRef } from '@angular/core';
+import { ErrorModalComponent } from '../modals/error-modal/error-modal.component';
+import { ConfirmDeleteComponent } from '../modals/confirm-delete/confirm-delete.component';
 
 @Component({
   selector: 'app-client',
   standalone: true,
   imports: [
-    CommonModule, 
-    MatTableModule, 
-    MatButtonModule, 
-    RouterModule  // Agregar RouterModule aquí
+    CommonModule,
+    MatTableModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    RouterModule,
   ],
   templateUrl: './client.component.html',
   styleUrls: ['./client.component.css'],
 })
 export class ClientComponent implements OnInit {
   clients: Client[] = [];
+  filteredClients: Client[] = [];
   showTable: boolean = false;
   loading: boolean = false;
+  searchQuery: string = '';
 
   constructor(
     private clientService: ClientService,
@@ -41,33 +50,55 @@ export class ClientComponent implements OnInit {
     this.loading = true;
     this.clientService.getClients().subscribe({
       next: (clients: Client[]) => {
-        console.log('Clientes cargados desde la API:', clients);
-        this.clients = clients.map((client) => ({
-          ClientId: client.ClientId ?? 0,
-          Name: client.Name || 'No Name',
-          Email: client.Email || 'No Email',
-          Phone: client.Phone || 'No Phone',
-          Address: client.Address || 'No Address',
-        }));
-        console.log('Clientes procesados:', this.clients);
+        this.clients = clients;
+        this.filteredClients = clients;
         this.loading = false;
         this.cdr.detectChanges();
       },
       error: (error) => {
-        console.error('Error al cargar clientes:', error);
+        console.error('Error while loading clients:', error);
         this.loading = false;
       },
     });
   }
 
-  openModal(): void {
+  searchClient(): void {
+    const query = this.searchQuery.trim().toLowerCase();
+
+    if (!query) {
+      this.filteredClients = this.clients;
+      return;
+    }
+
+    this.filteredClients = this.clients.filter(
+      (client) =>
+        client.ClientId.toString().includes(query) ||
+        client.Name.toLowerCase().includes(query) ||
+        client.Email.toLowerCase().includes(query) ||
+        client.Phone.toLowerCase().includes(query) ||
+        client.Address.toLowerCase().includes(query)
+    );
+
+    if (this.filteredClients.length === 0) {
+      this.dialog.open(ErrorModalComponent, { width: '300px' });
+    }
+  }
+
+  openModal(client: Client | null): void {
+    const clientToOpen = client || {
+      ClientId: null,
+      Name: '',
+      Email: '',
+      Phone: '',
+      Address: '',
+    };
+
     const dialogRef = this.dialog.open(YourDialogComponent, {
       width: '400px',
-      data: null,
+      data: { ...clientToOpen },
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log('Resultado del modal (nuevo cliente):', result);
       if (result) {
         this.loadClients();
       }
@@ -75,27 +106,32 @@ export class ClientComponent implements OnInit {
   }
 
   deleteClient(clientId: number): void {
-    console.log('ID del cliente a eliminar:', clientId);
     if (!clientId) {
-      console.error('El ID del cliente es inválido, no se puede eliminar.');
+      console.error('Invalid client ID. Cannot delete.');
       return;
     }
-
-    if (confirm('¿Estás seguro de que deseas eliminar este cliente?')) {
-      this.clientService.deleteClient(clientId).subscribe({
-        next: () => {
-          console.log('Cliente eliminado correctamente:', clientId);
-          this.loadClients();
-        },
-        error: (error) => {
-          console.error('Error al eliminar cliente:', error);
-        },
-      });
-    }
+  
+    // Abre el modal de confirmación
+    const dialogRef = this.dialog.open(ConfirmDeleteComponent, {
+      width: '300px',
+      data: { message: 'Are you sure you want to delete this client?' }, // Puedes personalizar el mensaje
+    });
+  
+    dialogRef.afterClosed().subscribe((confirmed) => {
+      if (confirmed) {
+        this.clientService.deleteClient(clientId).subscribe({
+          next: () => {
+            this.loadClients(); // Recarga los clientes si la eliminación es exitosa
+          },
+          error: (error) => {
+            console.error('Error while deleting client:', error);
+          },
+        });
+      }
+    });
   }
-
+  
   openEditModal(client: Client): void {
-    console.log('Cliente a editar:', client);
     if (client && client.ClientId) {
       const dialogRef = this.dialog.open(YourDialogComponent, {
         width: '400px',
@@ -103,18 +139,16 @@ export class ClientComponent implements OnInit {
       });
 
       dialogRef.afterClosed().subscribe((result) => {
-        console.log('Resultado del modal (editar cliente):', result);
         if (result) {
           this.loadClients();
         }
       });
     } else {
-      console.error('Cliente no válido para editar');
+      console.error('Invalid client to edit');
     }
   }
 
   toggleTableVisibility(): void {
     this.showTable = !this.showTable;
-    console.log('Visibilidad de la tabla:', this.showTable);
   }
 }
