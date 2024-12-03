@@ -1,0 +1,11 @@
+.vs/
+ControlStockBack.sln
+ControlStockBack/
+bin/
+obj/
+out/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.log
