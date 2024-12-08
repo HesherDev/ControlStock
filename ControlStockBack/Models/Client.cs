@@ -5,24 +5,13 @@ namespace ControlStockBack.Models
 {
     public class Client
     {
-        [Key]
         public int ClientId { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public string Phone { get; set; } = string.Empty;
+        public string Address { get; set; } = string.Empty;
 
-        [Required]
-        [MaxLength(100)]
-        public string Name { get; set; }
-
-        [EmailAddress]
-        [MaxLength(100)]
-        public string Email { get; set; }
-
-        [MaxLength(15)]
-        public string Phone { get; set; }
-
-        [MaxLength(200)]
-        public string Address { get; set; }
-
-        // Relación con pedidos
-        public ICollection<Order>? Orders { get; set; } 
+        // Si necesitas inicializar colecciones, hazlo en el constructor o con una inicialización predeterminada:
+        public ICollection<Order> Orders { get; set; } = new List<Order>();
     }
 }
