@@ -119,11 +119,10 @@ export class OrderComponent implements OnInit {
 
   deleteOrder(orderId: number): void {
     if (!orderId) {
-      console.error('Invalid order ID for deletion.');
+      console.error('Invalid order ID.');
       return;
     }
   
-    // Abre el modal de confirmación
     const dialogRef = this.dialog.open(ConfirmDeleteComponent, {
       width: '300px',
       data: { message: 'Are you sure you want to delete this order?' },
@@ -133,12 +132,13 @@ export class OrderComponent implements OnInit {
       if (confirmed) {
         this.orderService.deleteOrder(orderId).subscribe({
           next: () => {
-            this.loadOrders(); // Recarga las órdenes si la eliminación es exitosa
+            this.loadOrders();
           },
           error: (error) => {
             console.error('Error deleting order:', error);
             this.dialog.open(ErrorModalComponent, {
-              data: { message: 'Failed to delete the order. Please try again.' },
+              width: '300px',
+              data: { message: 'Failed to delete order. Please try again.' },
             });
           },
         });

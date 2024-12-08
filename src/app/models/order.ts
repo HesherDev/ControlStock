@@ -1,11 +1,11 @@
-  // models/pedido.ts
-// models/pedido.ts
+// models/order.ts
 export interface Order {
-  OrderId?: number; // Hacemos 'OrderId' opcional para nuevas órdenes
-  ClientId: number;
-  ClientName?: string; // Nombre del cliente, opcional en caso de no tenerlo directamente
-  OrderDate: string;
-  Total: number;
-  Status?: string; // El estado del pedido, opcional
-  Client?: any; // Si 'Client' es opcional, puede contener los detalles completos del cliente
+  OrderId?: number; 
+  ClientId: number; 
+  ClientName?: string; // Nombre del cliente (agregado para la vista)
+  OrderDate: string; 
+  Total: number; 
+  Client?: { 
+    Name: string; // Nombre del cliente recibido del backend
+  }; 
 }
