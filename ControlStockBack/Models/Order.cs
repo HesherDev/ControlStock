@@ -5,19 +5,11 @@ namespace ControlStockBack.Models
 {
     public class Order
     {
-        [Key]
         public int OrderId { get; set; }
-
-        [Required]
         public int ClientId { get; set; }
-
-        [Required]
-        public DateTime OrderDate { get; set; } = DateTime.Now;
-
-        [Required]
+        public Client Client { get; set; } = new Client();  // Inicializa como nuevo objeto si no es null.
+        public DateTime OrderDate { get; set; }
         public decimal Total { get; set; }
-
-        // Relación con Cliente
-        public Client? Client { get; set; }
     }
+
 }

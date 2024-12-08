@@ -1,0 +1,173 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\nicol\\source\\repos\\ControlStockBack\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{AFDC78CC-8310-4490-859F-05F4BC49F013}|ControlStockBack\\ControlStockBack.csproj|c:\\users\\nicol\\source\\repos\\controlstockback\\controlstockback\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AFDC78CC-8310-4490-859F-05F4BC49F013}|ControlStockBack\\ControlStockBack.csproj|solutionrelative:controlstockback\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AFDC78CC-8310-4490-859F-05F4BC49F013}|ControlStockBack\\ControlStockBack.csproj|c:\\users\\nicol\\source\\repos\\controlstockback\\controlstockback\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AFDC78CC-8310-4490-859F-05F4BC49F013}|ControlStockBack\\ControlStockBack.csproj|solutionrelative:controlstockback\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AFDC78CC-8310-4490-859F-05F4BC49F013}|ControlStockBack\\ControlStockBack.csproj|c:\\users\\nicol\\source\\repos\\controlstockback\\controlstockback\\controllers\\clientcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AFDC78CC-8310-4490-859F-05F4BC49F013}|ControlStockBack\\ControlStockBack.csproj|solutionrelative:controlstockback\\controllers\\clientcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AFDC78CC-8310-4490-859F-05F4BC49F013}|ControlStockBack\\ControlStockBack.csproj|c:\\users\\nicol\\source\\repos\\controlstockback\\controlstockback\\models\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AFDC78CC-8310-4490-859F-05F4BC49F013}|ControlStockBack\\ControlStockBack.csproj|solutionrelative:controlstockback\\models\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AFDC78CC-8310-4490-859F-05F4BC49F013}|ControlStockBack\\ControlStockBack.csproj|c:\\users\\nicol\\source\\repos\\controlstockback\\controlstockback\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AFDC78CC-8310-4490-859F-05F4BC49F013}|ControlStockBack\\ControlStockBack.csproj|solutionrelative:controlstockback\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AFDC78CC-8310-4490-859F-05F4BC49F013}|ControlStockBack\\ControlStockBack.csproj|c:\\users\\nicol\\source\\repos\\controlstockback\\controlstockback\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AFDC78CC-8310-4490-859F-05F4BC49F013}|ControlStockBack\\ControlStockBack.csproj|solutionrelative:controlstockback\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AFDC78CC-8310-4490-859F-05F4BC49F013}|ControlStockBack\\ControlStockBack.csproj|c:\\users\\nicol\\source\\repos\\controlstockback\\controlstockback\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AFDC78CC-8310-4490-859F-05F4BC49F013}|ControlStockBack\\ControlStockBack.csproj|solutionrelative:controlstockback\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AFDC78CC-8310-4490-859F-05F4BC49F013}|ControlStockBack\\ControlStockBack.csproj|c:\\users\\nicol\\source\\repos\\controlstockback\\controlstockback\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AFDC78CC-8310-4490-859F-05F4BC49F013}|ControlStockBack\\ControlStockBack.csproj|solutionrelative:controlstockback\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\nicol\\source\\repos\\ControlStockBack\\ControlStockBack\\Migrations\\20241207215643_MigracionInicial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ControlStockBack\\Migrations\\20241207215643_MigracionInicial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Order.cs",
+              "DocumentMoniker": "C:\\Users\\nicol\\source\\repos\\ControlStockBack\\ControlStockBack\\Models\\Order.cs",
+              "RelativeDocumentMoniker": "ControlStockBack\\Models\\Order.cs",
+              "ToolTip": "C:\\Users\\nicol\\source\\repos\\ControlStockBack\\ControlStockBack\\Models\\Order.cs",
+              "RelativeToolTip": "ControlStockBack\\Models\\Order.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-07T05:50:30.054Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Product.cs",
+              "DocumentMoniker": "C:\\Users\\nicol\\source\\repos\\ControlStockBack\\ControlStockBack\\Models\\Product.cs",
+              "RelativeDocumentMoniker": "ControlStockBack\\Models\\Product.cs",
+              "ToolTip": "C:\\Users\\nicol\\source\\repos\\ControlStockBack\\ControlStockBack\\Models\\Product.cs",
+              "RelativeToolTip": "ControlStockBack\\Models\\Product.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-07T08:27:49.642Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Client.cs",
+              "DocumentMoniker": "C:\\Users\\nicol\\source\\repos\\ControlStockBack\\ControlStockBack\\Models\\Client.cs",
+              "RelativeDocumentMoniker": "ControlStockBack\\Models\\Client.cs",
+              "ToolTip": "C:\\Users\\nicol\\source\\repos\\ControlStockBack\\ControlStockBack\\Models\\Client.cs",
+              "RelativeToolTip": "ControlStockBack\\Models\\Client.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-07T05:12:21.621Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "OrderController.cs",
+              "DocumentMoniker": "C:\\Users\\nicol\\source\\repos\\ControlStockBack\\ControlStockBack\\Controllers\\OrderController.cs",
+              "RelativeDocumentMoniker": "ControlStockBack\\Controllers\\OrderController.cs",
+              "ToolTip": "C:\\Users\\nicol\\source\\repos\\ControlStockBack\\ControlStockBack\\Controllers\\OrderController.cs*",
+              "RelativeToolTip": "ControlStockBack\\Controllers\\OrderController.cs*",
+              "ViewState": "AgIAADsAAAAAAAAAAAAiwFIAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-06T23:02:25.437Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ClientController.cs",
+              "DocumentMoniker": "C:\\Users\\nicol\\source\\repos\\ControlStockBack\\ControlStockBack\\Controllers\\ClientController.cs",
+              "RelativeDocumentMoniker": "ControlStockBack\\Controllers\\ClientController.cs",
+              "ToolTip": "C:\\Users\\nicol\\source\\repos\\ControlStockBack\\ControlStockBack\\Controllers\\ClientController.cs",
+              "RelativeToolTip": "ControlStockBack\\Controllers\\ClientController.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAADwv2AAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-07T05:12:47.177Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ProductController.cs",
+              "DocumentMoniker": "C:\\Users\\nicol\\source\\repos\\ControlStockBack\\ControlStockBack\\Controllers\\ProductController.cs",
+              "RelativeDocumentMoniker": "ControlStockBack\\Controllers\\ProductController.cs",
+              "ToolTip": "C:\\Users\\nicol\\source\\repos\\ControlStockBack\\ControlStockBack\\Controllers\\ProductController.cs",
+              "RelativeToolTip": "ControlStockBack\\Controllers\\ProductController.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAA3wF0AAABNAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-07T08:12:21.412Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\nicol\\source\\repos\\ControlStockBack\\ControlStockBack\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "ControlStockBack\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\nicol\\source\\repos\\ControlStockBack\\ControlStockBack\\ApplicationDbContext.cs",
+              "RelativeToolTip": "ControlStockBack\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAYwC8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-06T23:14:07.04Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\nicol\\source\\repos\\ControlStockBack\\ControlStockBack\\Program.cs",
+              "RelativeDocumentMoniker": "ControlStockBack\\Program.cs",
+              "ToolTip": "C:\\Users\\nicol\\source\\repos\\ControlStockBack\\ControlStockBack\\Program.cs",
+              "RelativeToolTip": "ControlStockBack\\Program.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAiwDgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-07T08:19:11.38Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "20241207215643_MigracionInicial.cs",
+              "DocumentMoniker": "C:\\Users\\nicol\\source\\repos\\ControlStockBack\\ControlStockBack\\Migrations\\20241207215643_MigracionInicial.cs",
+              "RelativeDocumentMoniker": "ControlStockBack\\Migrations\\20241207215643_MigracionInicial.cs",
+              "ToolTip": "C:\\Users\\nicol\\source\\repos\\ControlStockBack\\ControlStockBack\\Migrations\\20241207215643_MigracionInicial.cs",
+              "RelativeToolTip": "ControlStockBack\\Migrations\\20241207215643_MigracionInicial.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-07T21:56:44.626Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

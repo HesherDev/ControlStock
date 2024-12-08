@@ -1,5 +1,4 @@
 using System.Text.Json.Serialization;
-using ControlStockBack.Data;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
