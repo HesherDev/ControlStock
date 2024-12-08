@@ -4,6 +4,7 @@
   import { Observable, throwError } from 'rxjs';
   import { catchError } from 'rxjs/operators';
   import { Order } from '../models/order';
+  import { map } from 'rxjs/operators';
   
   @Injectable({
     providedIn: 'root',
@@ -14,9 +15,16 @@
     constructor(private http: HttpClient) {}
   
     getOrders(): Observable<Order[]> {
-      return this.http.get<Order[]>(this.apiUrl).pipe(catchError(this.handleError));
+      return this.http.get<Order[]>(this.apiUrl).pipe(
+        map((orders) =>
+          orders.map((order) => ({
+            ...order,
+            ClientName: order.Client?.Name || 'Unknown', // Asigna el nombre del cliente
+          }))
+        ),
+        catchError(this.handleError)
+      );
     }
-  
     addOrder(order: Order): Observable<Order> {
       return this.http
         .post<Order>(this.apiUrl, order, this.httpOptions())
